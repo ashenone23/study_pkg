@@ -1,0 +1,9 @@
+<launch>
+    <arg name="new_topic_name" default="chatter" />
+    <node name="listener" pkg="study_pkg" type="listener_cpp" output="screen">
+        <remap from="cpp_chatter" to="$(arg new_topic_name)"/>
+    </node>
+    <node name="talker" pkg="study_pkg" type="talker_cpp" output="screen">
+    	<remap from="cpp_chatter" to="$(arg new_topic_name)"/>
+    </node>
+</launch>
